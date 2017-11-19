@@ -1,0 +1,38 @@
+package com.codeschool.tinybytes;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ImageView;
+
+public class MainActivity extends AppCompatActivity {
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    ImageView imageView = (ImageView)this.findViewById(R.id.image_view_logo);
+    imageView.setImageResource(R.drawable.tiny_bytes_logo_new);
+
+    Integer[] imageList = {
+      R.drawable.bread_snack, 
+      R.drawable.caprese_skewers,
+      R.drawable.cheese_grapes,
+      R.drawable.other_salad,
+      R.drawable.ramen, 
+      R.drawable.sandwich,
+      R.drawable.shrimp_app, 
+      R.drawable.spaghetti,
+      R.drawable.spinach_salad, 
+      R.drawable.sushi,
+      R.drawable.taco
+    };
+
+    ImageAdapter imageAdapter = new ImageAdapter(this, imageList);
+    GridView gridView = (GridView)this.findViewById(R.id.gridView);
+    gridView.setAdapter(imageAdapter);
+  }
+}
